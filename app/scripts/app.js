@@ -20,9 +20,9 @@ angular.module('myMvpProjectApp', [
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+      .when('/todos', {
+        templateUrl: 'views/todos.html',
+        controller: 'todoController',
         controllerAs: 'main'
       })
       .when('/about', {
