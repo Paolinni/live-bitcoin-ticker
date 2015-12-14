@@ -2,8 +2,15 @@
 
 angular.module('myMvpProjectApp')
 
-  .controller('MainCtrl', function ($scope) {
-    $scope.todos = ['item1', 'item2', 'item3'];
+  .controller('MainCtrl', function ($scope, localStorageService) {
+    var todosInStore = localStorageService.get('todos');
+
+    $scope.todos = todosInStore || ['bob','cheese'];
+
+    $scope.$watch('todos', function() {
+      localStorageService.set('todos', $scope.todos);
+    }, true);
+
     $scope.todo = '';
 
     $scope.addTodo = function() {
@@ -14,6 +21,10 @@ angular.module('myMvpProjectApp')
         $scope.todos.push($scope.todo);
         $scope.todo = '';
       }
+    };
+
+    $scope.removeTodo = function(index) {
+      $scope.todos.splice(index, 1);
     };
 
   });

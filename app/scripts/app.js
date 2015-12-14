@@ -8,13 +8,15 @@
  *
  * Main module of the application.
  */
+
 angular.module('myMvpProjectApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'LocalStorageModule'
   ])
   .config(function ($routeProvider) {
     $routeProvider
