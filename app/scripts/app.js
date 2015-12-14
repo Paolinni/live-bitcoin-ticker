@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('myMvpProjectApp', [
+angular.module('myMvpProjectApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
