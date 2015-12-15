@@ -1,9 +1,9 @@
 <div class='container'>
 <h2>Live Bitcoin ticker (USD)</h2>
 <button class='btn clear-local-storage-btn' ng-click='clearLocalStorage()'></button>
-  <p class='ticks' ng-repeat='tick in ticks | orderBy:"timestamp":true'>
-    <span type='text' class='tick-price' ng-model='tick'>{{ tick.last | currency }}</span>
-    <span type='text' class='tick-date'>{{ tick.timestamp }}{{ tick.$$hashKey }}</span>
+  <p class='ticks'>
+    <span type='text' class='tick-price'>{{ liveTick.data.last }} </span>
+    <span type='text' class='tick-date'>{{ 2 + 2 }}</span>
   </p>
 
 </div>

@@ -1,13 +1,13 @@
 angular.module('myMvpProjectApp')
 
   .controller('BitcoinController', function ($scope, Ticker, localStorageService) {
-    var ticksInStore = localStorageService.get('ticks');
+    // var ticksInStore = localStorageService.get('ticks');
 
-    $scope.ticks = ticksInStore || [];
+    // $scope.ticks = ticksInStore || [];
 
-    $scope.$watch('ticks', function() {
-      localStorageService.set('ticks', $scope.ticks);
-    }, true);
+    // $scope.$watch('ticks', function() {
+    //   localStorageService.set('ticks', $scope.ticks);
+    // }, true);
 
     $scope.liveTick = '';
 
@@ -15,21 +15,19 @@ angular.module('myMvpProjectApp')
       Ticker.fetchData()
       .then(function(tick) {
         console.log('tick: ', tick);
+        $scope.liveTick = tick;
 
-        if ($scope.ticks.indexOf(tick) === -1) {
-          $scope.liveTick = tick.data;
-          $scope.ticks.push(tick.data);
-          console.log('ticks: ', $scope.ticks);
-        }
+        // if ($scope.ticks.indexOf(tick) === -1) {
+        //   $scope.liveTick = tick.data;
+        //   $scope.ticks.push(tick.data);
+        //   console.log('ticks: ', $scope.ticks);
+        // }
+        console.log('liveTick: ', $scope.liveTick)
       })
       .catch(function(err) {
         console.log(err);
         console.error(err);
       });
-    };
-
-    $scope.clearLocalStorage = function() {
-      console.log(localStorageService.get());
     };
 
     setInterval(function() {
