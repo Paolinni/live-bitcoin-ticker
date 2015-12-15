@@ -15,7 +15,7 @@ angular.module('myMvpProjectApp', [
       })
       .when('/bitcoin', {
         templateUrl: 'views/bitcoin.html',
-        controller: 'BitcoinController'
+        controller: 'GraphController'
       })
       .otherwise({
         redirectTo: '/'
