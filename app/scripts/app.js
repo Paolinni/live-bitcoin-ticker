@@ -1,14 +1,3 @@
-'use strict';
-
-/**
- * @ngdoc overview
- * @name myMvpProjectApp
- * @description
- * # myMvpProjectApp
- *
- * Main module of the application.
- */
-
 angular.module('myMvpProjectApp', [
     'ngAnimate',
     'ngCookies',
@@ -22,15 +11,29 @@ angular.module('myMvpProjectApp', [
     $routeProvider
       .when('/todos', {
         templateUrl: 'views/todos.html',
-        controller: 'todoController',
-        controllerAs: 'main'
+        controller: 'TodoController'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/bitcoin', {
+        templateUrl: 'views/bitcoin.html',
+        controller: 'BitcoinController'
       })
       .otherwise({
         redirectTo: '/'
+      })
+  })
+  .factory('Ticker', function ($http) {
+    var fetchData = function() {
+      return $http({
+        method: 'GET',
+        url: 'https://api.bitcoinaverage.com/ticker/USD'
+      })
+      .then(function(res) {
+        console.log('res data: ', res);
+        return res;
       });
+    };
+
+    return {
+      fetchData: fetchData
+    };
   });

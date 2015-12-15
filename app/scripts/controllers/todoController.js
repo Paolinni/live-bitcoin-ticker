@@ -1,8 +1,6 @@
-'use strict';
-
 angular.module('myMvpProjectApp')
 
-  .controller('todoController', function ($scope, localStorageService) {
+  .controller('TodoController', function ($scope, localStorageService) {
     var todosInStore = localStorageService.get('todos');
 
     $scope.todos = todosInStore || ['bob','cheese'];

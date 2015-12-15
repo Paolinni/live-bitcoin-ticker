@@ -1,6 +1,4 @@
-'use strict';
-
-describe('Controller: AboutCtrl', function () {
+xdescribe('Controller: AboutCtrl', function () {
 
   // load the controller's module
   beforeEach(module('myMvpProjectApp'));
