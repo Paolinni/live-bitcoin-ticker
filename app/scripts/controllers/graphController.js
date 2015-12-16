@@ -1,6 +1,9 @@
 angular.module('myMvpProjectApp')
 
 .controller('GraphController', function ($scope, $interval, Ticker, localStorageService) {
+    $scope.countDownNewTick = 0;
+    var stop;
+
     var ticksInStore = localStorageService.get('coinData');
 
     $scope.coinData = ticksInStore || [{hour: 1, value: 461}];
@@ -19,6 +22,12 @@ angular.module('myMvpProjectApp')
 
         if ($scope.coinData.indexOf(tick.data) === -1) {
           $scope.coinData.push({ hour: $scope.coinData.length+1, value: tick.data.last });
+          $scope.countDownNewTick = 9;
+          $interval.cancel(stop);
+          stop = $interval(function() {
+            $scope.countDownNewTick--;
+          }, 1000);
+
           console.log('ticks: ', $scope.ticks);
         }
         console.log('liveTick: ', $scope.liveTick)
@@ -28,7 +37,9 @@ angular.module('myMvpProjectApp')
         console.error(err);
       });
     };
-    setInterval(function() {
+
+
+    $interval(function() {
         $scope.getLiveTicks();
     }, 10000);
 })
@@ -71,7 +82,7 @@ angular.module('myMvpProjectApp')
                xAxisGen = d3.svg.axis()
                    .scale(xScale)
                    .orient("bottom")
-                   .ticks(coinDataToPlot.length - 1);
+                   .ticks(5);
 
                yAxisGen = d3.svg.axis()
                    .scale(yScale)

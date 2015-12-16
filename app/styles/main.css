@@ -59,6 +59,15 @@ body {
   margin-top: 28px;
 }
 
+.tick-price {
+  font-size: larger;
+  color: green;
+}
+
+.counter {
+  color: red;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
