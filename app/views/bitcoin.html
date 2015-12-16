@@ -1,14 +1,15 @@
 <div class='container' ng-controller='GraphController'>
-<h2>Live Bitcoin ticker (USD)</h2>
-  <p class='ticks'>
-    <span type='text' class='tick-price'>{{ liveTick.data.last | currency }}</span>
-    <span type='text' class='tick-date'></span>
-  </p>
+  <h2>Live Bitcoin Ticker</h2>
 
-<h2>Live Graph - Updates in:<span class='counter'> {{ countDownNewTick }} </span></h2>
-<div>
-  <div linear-chart chart-data='coinData'></div>
-</div>
+  <h1>
+    <span class='tick-price-txt'>Current Value: </span>
+    <span type='text' class='tick-price'>{{ liveTick.data.last | currency }}</span>
+    </span>Updates in: <span class='counter'>{{ countDownNewTick }}</span>
+  </h1>
+
+  <div>
+    <div linear-chart chart-data='coinData'></div>
+  </div>
 
 </div>
 

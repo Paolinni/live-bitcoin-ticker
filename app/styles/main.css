@@ -6,6 +6,7 @@
 }
 
 body {
+  font-family: 'Cabin', sans-serif;
   padding: 0;
 }
 
@@ -20,7 +21,7 @@ body {
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -34,7 +35,6 @@ body {
 .footer {
   padding-top: 19px;
   color: #777;
-  border-top: 1px solid #e5e5e5;
 }
 
 .container-narrow > hr {
@@ -60,12 +60,36 @@ body {
 }
 
 .tick-price {
-  font-size: larger;
+  font-size: 20px;
   color: green;
 }
 
 .counter {
   color: red;
+}
+
+.axis path,
+.axis line{
+  fill: none;
+  stroke:black;
+  shape-rendering:crispEdge;
+}
+
+.axis text{
+  font-size: 10px;
+}
+
+h1{
+  padding-bottom: 15px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.tick{
+  stroke-dasharray: 5;
+}
+
+h2 {
+  font-size: 25px;
 }
 
 /* Responsive: Portrait tablets and up */

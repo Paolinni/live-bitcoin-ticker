@@ -19,17 +19,12 @@ angular.module('myMvpProjectApp')
       .then(function(tick) {
         console.log('tick: ', tick);
         $scope.liveTick = tick;
-
-        if ($scope.coinData.indexOf(tick.data) === -1) {
-          $scope.coinData.push({ hour: $scope.coinData.length+1, value: tick.data.last });
-          $scope.countDownNewTick = 9;
-          $interval.cancel(stop);
+        $scope.coinData.push({ hour: $scope.coinData.length+1, value: tick.data.last });
+        $scope.countDownNewTick = 9;
+        $interval.cancel(stop);
           stop = $interval(function() {
             $scope.countDownNewTick--;
           }, 1000);
-
-          console.log('ticks: ', $scope.ticks);
-        }
         console.log('liveTick: ', $scope.liveTick)
       })
       .catch(function(err) {
@@ -52,7 +47,7 @@ angular.module('myMvpProjectApp')
            var exp = $parse(attrs.chartData);
 
            var coinDataToPlot = exp(scope);
-           var padding = 5;
+           var padding = 25;
            var pathClass = "path";
            var xScale, yScale, xAxisGen, yAxisGen, lineFun;
 
@@ -82,7 +77,7 @@ angular.module('myMvpProjectApp')
                xAxisGen = d3.svg.axis()
                    .scale(xScale)
                    .orient("bottom")
-                   .ticks(5);
+                   .ticks(6);
 
                yAxisGen = d3.svg.axis()
                    .scale(yScale)
@@ -105,12 +100,12 @@ angular.module('myMvpProjectApp')
 
                svg.append("svg:g")
                    .attr("class", "x axis")
-                   .attr("transform", "translate(0,180)")
+                   .attr("transform", "translate(12,178)")
                    .call(xAxisGen);
 
                svg.append("svg:g")
                    .attr("class", "y axis")
-                   .attr("transform", "translate(20,0)")
+                   .attr("transform", "translate(40,0)")
                    .call(yAxisGen);
 
                svg.append("svg:path")
