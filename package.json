@@ -2,16 +2,16 @@
   "name": "mymvpproject",
   "private": true,
   "devDependencies": {
-    "express": "^4.13.3",
-    "cookie-parser": "^1.4.1",
+    "autoprefixer-core": "^5.2.1",
     "body-parser": "^1.14.2",
-    "autoprefixer-core": "^5.2.1"
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.3"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "dependencies": {
   }
