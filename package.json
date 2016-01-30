@@ -2,6 +2,9 @@
   "name": "mymvpproject",
   "private": true,
   "devDependencies": {
+    "express": "^4.13.3",
+    "cookie-parser": "^1.4.1",
+    "body-parser": "^1.14.2",
     "autoprefixer-core": "^5.2.1",
     "grunt": "^0.4.5",
     "grunt-angular-templates": "^0.5.7",
