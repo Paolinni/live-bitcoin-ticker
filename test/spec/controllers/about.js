@@ -1,3 +1,5 @@
+'use strict';
+
 xdescribe('Controller: AboutCtrl', function () {
 
   // load the controller's module

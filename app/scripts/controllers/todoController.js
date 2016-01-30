@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myMvpProjectApp')
 
   .controller('TodoController', function ($scope, localStorageService) {
@@ -14,7 +16,6 @@ angular.module('myMvpProjectApp')
     $scope.addTodo = function() {
       if ($scope.todos.indexOf($scope.todo) !== -1) {
         //todo: implement dirty checker for this
-        alert('That todo already exists!');
       } else if ($scope.todo) {
         $scope.todos.push($scope.todo);
         $scope.todo = '';

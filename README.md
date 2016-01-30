@@ -2,7 +2,7 @@
 
 Todo app and Live Bitcoin Ticker app
 
-Created mainly with AngularJS and D3
+Created with AngularJS and D3
 
 #Todo app
 

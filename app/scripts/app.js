@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myMvpProjectApp', [
     'ngAnimate',
     'ngCookies',
@@ -19,7 +21,7 @@ angular.module('myMvpProjectApp', [
       })
       .otherwise({
         redirectTo: '/'
-      })
+      });
   })
   .factory('Ticker', function ($http) {
     var fetchData = function() {

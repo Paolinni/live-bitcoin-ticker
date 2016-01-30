@@ -1,3 +1,5 @@
+'use strict';
+
 xdescribe('Controller: MainCtrl', function () {
 
   // load the controller's module
