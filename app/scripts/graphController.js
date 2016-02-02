@@ -10,7 +10,7 @@ angular.module('myMvpProjectApp')
 
   $scope.coinData = ticksInStore || [{
     hour: 1,
-    value: 461
+    value: 350
   }];
 
   $scope.$watch('coinData', function() {
