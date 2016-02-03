@@ -1,6 +1,7 @@
 {
   "name": "mymvpproject",
   "private": true,
+  "main": "server/server.js",
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "body-parser": "^1.14.2",
@@ -8,11 +9,21 @@
     "express": "^4.13.3"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": "5.0.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server/server.js"
   },
   "dependencies": {
-  }
+    "autoprefixer-core": "^5.2.1",
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.3"
+  },
+    "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
