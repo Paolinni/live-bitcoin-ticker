@@ -39,9 +39,8 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "postinstall": "grunt serve",
-    "start": "node index.js",
-    "test": "grunt test"
+    "postinstall": "grunt build",
+    "start": "node index.js"
   },
   "dependencies": {
     "grunt": "0.4.5",
