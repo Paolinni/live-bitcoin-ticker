@@ -3,3 +3,7 @@
 /.tmp
 /.sass-cache
 /bower_components
+node_modules
+.env
+Dockerfile
+docker-compose.yml
