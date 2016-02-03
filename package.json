@@ -39,7 +39,6 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "postinstall": "grunt uglify",
     "start": "node index.js",
     "test": "grunt test"
   },
