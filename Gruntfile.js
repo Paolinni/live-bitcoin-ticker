@@ -11,7 +11,7 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-  require('load-grunt-tasks')(grunt);
+  // require('load-grunt-tasks')(grunt);
 
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
@@ -68,34 +68,6 @@ module.exports = function (grunt) {
         ]
       }
     },
-
-  buildcontrol: {
-    options: {
-      dir: 'dist',
-      commit: true,
-      push: true,
-      message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-    },
-    pages: {
-      options: {
-        remote: 'https://github.com/Paolinni/my-MVP-project',
-        branch: 'gh-pages'
-      }
-    },
-    heroku: {
-      options: {
-        remote: 'https://git.heroku.com/bit-coin-app.git',
-        branch: 'master',
-        tag: pkg.version
-      }
-    },
-    local: {
-      options: {
-        remote: '../',
-        branch: 'build'
-      }
-    }
-  },
     // The actual grunt server settings
     connect: {
       options: {
@@ -445,10 +417,38 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+      buildcontrol: {
+    options: {
+      dir: 'dist',
+      commit: true,
+      push: true,
+      message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+    },
+    pages: {
+      options: {
+        remote: 'https://github.com/Paolinni/my-MVP-project',
+        branch: 'gh-pages'
+      }
+    },
+    heroku: {
+      options: {
+        remote: 'https://git.heroku.com/bit-coin-app.git',
+        branch: 'master',
+        tag: 'pkg.version'
+      }
+    },
+    local: {
+      options: {
+        remote: '../',
+        branch: 'build'
+      }
     }
+  }
+
   });
 
-  // grunt.loadNpmTasks('grunt-build-control');
+  grunt.loadNpmTasks('grunt-build-control');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
