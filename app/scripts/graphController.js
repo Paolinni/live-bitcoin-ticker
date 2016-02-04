@@ -1,12 +1,14 @@
 angular.module('myMvpProjectApp')
 
 .controller('GraphController', function ($scope, $interval, Ticker, localStorageService) {
+    $scope.waitOneMinute = true;
+
     $scope.countDownNewTick = 0;
     var stop;
 
     var ticksInStore = localStorageService.get('coinData');
 
-    $scope.coinData = ticksInStore || [{hour: 1, value: 461}];
+    $scope.coinData = ticksInStore || [{hour: 1, value: 0}];
 
     $scope.$watch('coinData', function() {
       localStorageService.set('coinData', $scope.coinData);
@@ -19,13 +21,18 @@ angular.module('myMvpProjectApp')
       .then(function(tick) {
         console.log('tick: ', tick);
         $scope.liveTick = tick;
-        $scope.coinData.push({ hour: $scope.coinData.length+1, value: tick.data.last });
-        $scope.countDownNewTick = 9;
-        $interval.cancel(stop);
-          stop = $interval(function() {
-            $scope.countDownNewTick--;
-          }, 1000);
-        console.log('liveTick: ', $scope.liveTick)
+        if ($scope.coinData[0].value === 0) {
+          $scope.coinData[0] = { hour: $scope.coinData.length+1, value: tick.data.last }
+        } else {
+          $scope.coinData.push({ hour: $scope.coinData.length+1, value: tick.data.last });
+          $scope.countDownNewTick = 59;
+          $scope.waitOneMinute = false;
+          $interval.cancel(stop);
+            stop = $interval(function() {
+              $scope.countDownNewTick--;
+            }, 1000);
+          console.log('liveTick: ', $scope.liveTick)
+        }
       })
       .catch(function(err) {
         console.log(err);
@@ -33,10 +40,9 @@ angular.module('myMvpProjectApp')
       });
     };
 
-
     $interval(function() {
         $scope.getLiveTicks();
-    }, 10000);
+    }, 60000);
 })
 
 .directive('linearChart', function($parse, $window){
