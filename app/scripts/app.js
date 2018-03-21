@@ -27,7 +27,7 @@ angular.module('myMvpProjectApp', [
     var fetchData = function() {
       return $http({
         method: 'GET',
-        url: 'https://api.bitcoinaverage.com/ticker/USD'
+        url: 'https://api.coindesk.com/v1/bpi/currentprice.json'
       })
       .then(function(res) {
         console.log('res data: ', res);

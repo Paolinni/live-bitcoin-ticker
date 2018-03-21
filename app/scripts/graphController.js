@@ -22,9 +22,9 @@ angular.module('myMvpProjectApp')
         console.log('tick: ', tick);
         $scope.liveTick = tick;
         if ($scope.coinData[0].value === 0) {
-          $scope.coinData[0] = { hour: $scope.coinData.length+1, value: tick.data.last }
+          $scope.coinData[0] = { hour: $scope.coinData.length+1, value: tick.data.bpi.USD.rate_float }
         } else {
-          $scope.coinData.push({ hour: $scope.coinData.length+1, value: tick.data.last });
+          $scope.coinData.push({ hour: $scope.coinData.length+1, value: tick.data.bpi.USD.rate_float });
           $scope.countDownNewTick = 59;
           $scope.waitOneMinute = false;
           $interval.cancel(stop);
@@ -142,4 +142,3 @@ angular.module('myMvpProjectApp')
        }
    };
 });
-
