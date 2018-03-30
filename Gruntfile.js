@@ -489,8 +489,8 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
-    'cssmin',
+    // 'cdnify',
+    'force:cssmin',
     'uglify',
     'filerev',
     'usemin',
@@ -498,9 +498,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
+    // 'newer:jshint',
     'newer:jscs',
-    'test',
     'build'
   ]);
 };
